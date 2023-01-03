@@ -1,0 +1,64 @@
+Modules in NodeJS
+===============
+Modules are libraries. They are set of functions that user may include while building the server
+
+Built-in Modules:
+==================
+Nodejs has a set of Built-in modules that doesnt require any seperate installation
+
+How to Include Modules:
+==========================
+need to use require() function
+var http = require('http')
+
+We can create our own modules using NodeJS
+===========================================
+exports.myDateTime = function() {
+    return Date()
+}
+
+exports keyword make the properties and methods available outside the module file
+
+NodeJS File System: (fs module)
+=================================
+var fs = require('fs')
+
+Uses of fs module:
+==================
+It can perform various operations on files at operation system level:
+Read, Create, Update, Delete, Rename files
+Ex:
+====
+fs.readFile() method is used to read files located on your computer
+fs.appendFile() -- this can be for writing new file
+fs.open() -- takes a flag w for writing which opens file for writing. file will be created if not present
+fs.writeFile() -- it overwrites the contents if file already exists else it creates new file
+
+
+
+NodeJS Events:
+===============
+Every action on a computer is an event. Ex: Connect to wi-fi, open a folder or file, open a browser
+
+Objects in NodeJS can fire events, like the readStream object which fires events when opening or closing the files
+
+var fs = require('fs')
+var rs = fs.createReadStream(./demofile.txt)
+rs.on('open' function() {
+ console.log("This file is open")
+})
+
+Events Module:
+===================
+var events = require("events")
+var eventEmitter = new events.EventEmitter()
+
+var myEventHandler = function () {
+    console.log("I can hear system sound")
+}
+
+eventEmitter.on('syssound',myEventHandler)
+
+eventEmitter.emit('syssound')
+
+
